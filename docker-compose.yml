@@ -1,0 +1,18 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      DOCUMENTS_DIR: /app/data/documents
+      HF_HOME: /root/.cache/huggingface
+    volumes:
+      - docling-cache:/root/.cache/huggingface
+      - app-data:/app/data
+
+volumes:
+  docling-cache:
+  app-data:
+
